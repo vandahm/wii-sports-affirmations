@@ -10,6 +10,7 @@
         document.documentElement.classList.add('js');
     </script>
 
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="screen.css">
 
     <meta name="description" content="Receive periodic affirmation from the one website that will never judge you.">
@@ -21,6 +22,42 @@
     <meta property="og:type" content="website">
 </head>
 <body>
+    <div class="container">
+        <h1>
+            <span class="logo-wii">Wii</span><span class="logo-sports">Sports</span>&nbsp;
+            <span class="logo-affirmations">Affirmations</span>
+        </h1>
+
+        <hr>
+
+        <main>
+            <h2>Another day, another slay</h2>
+            <div class="intro">
+                <div class="intro-text">
+                    <p>
+                        Power through your homework! Fueled by the inspiring sounds of Wii Sports,
+                        you will be unstoppable!
+                    </p>
+                    <p>
+                        Just press the <strong>Start</strong> button below and, every few minutes,
+                        you will be treated to an uplifting and life-affirming sound effect from
+                        the classic video game <em>Wii Sports</em>. The experience is nothing short
+                        of inspirational!
+                    </p>
+                </div>
+                <img class="screenshot" src="img/you-win.jpg">
+            </div>
+            <div id="player" data-status="disabled">
+                <button class="wii-button" id="on-off">Start</button>
+                <div class="bar-wrapper">
+                    <h5>Countdown to Affirmation</h5>
+                    <progress id="progress" max="10" value="0"></progress>
+                </div>
+            </div>
+        </main>
+
+        
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
