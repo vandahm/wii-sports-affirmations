@@ -29,7 +29,7 @@ function affirmationUpdate() {
         'gold-medal.mp3',
         'high-score.mp3',
         'hole-in-one.mp3',
-        'nice-approach.mp3',
+        // 'nice-approach.mp3',
         'nice-shot-01.mp3',
         // 'nice-shot-02.mp3',
         // 'nice-shot-03.mp3',
