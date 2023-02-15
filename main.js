@@ -3,9 +3,10 @@ console.log("Hello!");
 var affirmationInterval = false;
 var delayInSeconds = 10;
 var countdownInSeconds = 10;
+var sound;
 
 function playSoundFile(url) {
-    var sound = new Audio(url);
+    sound = new Audio(url);
 
     sound.addEventListener("canplaythrough", (event) => {
         console.log(`playing audio file: ${url}`);
@@ -24,14 +25,14 @@ function affirmationUpdate() {
         'applause-05.mp3',
         'baseball-organ-01.mp3',
         'baseball-organ-02.mp3',
-        'bronze-medal.mp3',
+        // 'bronze-medal.mp3',
         'gold-medal.mp3',
         'high-score.mp3',
         'hole-in-one.mp3',
         'nice-approach.mp3',
         'nice-shot-01.mp3',
-        'nice-shot-02.mp3',
-        'nice-shot-03.mp3',
+        // 'nice-shot-02.mp3',
+        // 'nice-shot-03.mp3',
         'platinum-medal.mp3',
         'silver-medal.mp3'
     ];
@@ -52,20 +53,23 @@ function affirmationUpdate() {
     countdownInSeconds--;
 
     progress.setAttribute('value', countdownInSeconds);
-
-    var counter = document.getElementById("counter");
-    counter.innerHTML = countdownInSeconds;
+    progress.innerHTML = `${countdownInSeconds} seconds`;
 }
 
 
 document.getElementById('on-off').onclick = function(e){
     var player = document.getElementById('player');
+    var progress = document.getElementById("progress");
     if (player.dataset.status === 'disabled') {
         player.dataset.status = 'enabled';
         this.innerHTML = 'Stop';
+        progress.innerHTML = 'Initializing...';
         playSoundFile("audio/opening.mp3");
 
         delayInSeconds = 10;
+        countdownInSeconds = 10;
+        progress.setAttribute('max', 10);
+        progress.setAttribute('value', 10);
         affirmationInterval = window.setInterval(affirmationUpdate, 1000);
 
     } else {
@@ -75,9 +79,10 @@ document.getElementById('on-off').onclick = function(e){
             window.clearInterval(affirmationInterval);
             affirmationInterval = false;
             document.getElementById("progress").setAttribute('value', 0);
+            delayInSeconds = 10;
+            countdownInSeconds = 10;
         }
-        var counter = document.getElementById("counter");
-        counter.innerHTML = "None";
+        progress.innerHTML = "None";
     }
   }
   
