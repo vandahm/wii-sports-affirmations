@@ -85,9 +85,14 @@ hr {
 
 .intro {
     display: grid;
-    grid-template-columns: 60% 40%;
     margin-bottom: 1.5rem;
     line-height: 1.5rem;
+}
+
+@media only screen and (min-width: 640px) {
+    .intro {
+        grid-template-columns: 60% 40%;
+    }
 }
 
 p {

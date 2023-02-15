@@ -3,10 +3,10 @@ console.log("Hello!");
 var affirmationInterval = false;
 var delayInSeconds = 10;
 var countdownInSeconds = 10;
-var sound;
+var sound = new Audio();
 
 function playSoundFile(url) {
-    sound = new Audio(url);
+    sound.src = url;
 
     sound.addEventListener("canplaythrough", (event) => {
         console.log(`playing audio file: ${url}`);
